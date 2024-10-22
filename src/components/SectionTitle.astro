@@ -1,0 +1,39 @@
+---
+interface Props {
+  id?: string;
+  title: string;
+  description?: string;
+}
+
+const { title, description, id } = Astro.props;
+---
+
+<div class="section-title animated" id={id}>
+  <span class="section-title-line"></span>
+  <h2>{title}</h2>
+  {description && <p>{description}</p>}
+</div>
+
+<style>
+  .section-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6rem;
+    margin-bottom: 2rem;
+  }
+  .section-title-line {
+    width: 100px;
+    height: 1px;
+    background-color: var(--primary);
+  }
+  h2 {
+    font-size: 2.5rem;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 1rem;
+    color: var(--secondary);
+    text-align: center;
+  }

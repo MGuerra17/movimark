@@ -1,0 +1,125 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<SectionTitle title="Acerca de nosotros" id="nosotros" />
+
+<div class="about-container">
+  <div class="about-image animated"></div>
+  <div class="about-info animated">
+    <p>En movimark somos una empresa <span>lider</span> en el live marketing</p>
+    <div class="data-container">
+      <div class="data">
+        <p class="value">+15</p>
+        <p class="description">Años de experiencia</p>
+      </div>
+      <div class="data">
+        <p class="value">+30</p>
+        <p class="description">Empresas aliadas</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .about-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 6rem;
+    column-gap: 4rem;
+  }
+  .about-image {
+    width: 100%;
+    max-width: 600px;
+    background: url('/nosotros.webp') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;
+  }
+  .about-info {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about-info p {
+    color: var(--foreground);
+    font-size: 3rem;
+    margin: 0;
+  }
+  .about-info p span {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .data-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+  }
+  .data {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .data::after {
+    content: '';
+    position: absolute;
+    top: -0.75rem;
+    left: 50%;
+    width: 3.5rem;
+    aspect-ratio: 1;
+    background-color: var(--primary);
+    border-radius: 50%;
+    z-index: -1;
+  }
+  .data p {
+    margin: 0;
+    text-align: center;
+  }
+  .data p.value {
+    font-size: 3rem;
+    padding: 0;
+  }
+  .data p.description {
+    font-size: 1.5rem;
+  }
+    
+  @media (max-width: 1024px) {
+    .about-container {
+      flex-direction: column;
+      padding: 2rem;
+      align-items: center;
+    }
+    .about-image {
+      height: 300px;
+    }
+    .about-info {
+      max-width: none;
+      align-items: center;
+    }
+    .about-info p {
+      font-size: 2rem;
+      padding-top: 2rem;
+      text-align: center;
+    }
+    .data-container {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-container {
+      padding: 2rem;
+    }
+    .about-image {
+      height: 200px;
+    }
+    .about-info p {
+      font-size: 2rem;
+    }
+  }
+</style>

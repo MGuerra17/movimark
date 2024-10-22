@@ -1,0 +1,86 @@
+---
+import SectionTitle from "../SectionTitle.astro";
+---
+
+<SectionTitle title="Servicios adicionales" />
+
+<div class="services-container">
+  <div class="service left animated">
+    <div class="service-text">
+      <span>1.</span>
+      <h3>Live marketing</h3>
+    </div>
+  </div>
+  <div class="service right animated">
+    <div class="service-text">
+      <span>2.</span>
+      <h3>Activaciones itinerantes</h3>
+    </div>
+  </div>
+</div>
+
+<style>
+  .services-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4rem;
+    padding: 4rem 0;
+  }
+  .service {
+    width: 80%;
+  }
+  .left {
+    background: url('/live-marketing.webp') no-repeat center center;
+    align-self: flex-start;
+  }
+  .right {
+    background: url('/activaciones.webp') no-repeat center center;
+    align-self: flex-end;
+  }
+  .service-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: var(--foreground);
+  }
+  .service-text span {
+    font-size: 8rem;
+    color: var(--foreground);
+  }
+  .service-text h3 {
+    font-size: 3rem;
+    color: var(--foreground);
+    max-width: 300px;
+    font-weight: 400;
+  }
+
+  @media (max-width: 1024px) {
+    .services-container {
+      row-gap: 2rem;
+      padding: 2rem 0;
+    }
+    .service-text span {
+      font-size: 6rem;
+    }
+    .service-text h3 {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service {
+      width: 100%;
+    }
+    .left, .right {
+      background-size: cover;
+    }
+    .service-text span {
+      font-size: 4rem;
+    }
+    .service-text h3 {
+      font-size: 1.5rem;
+    }
+  }
+</style>

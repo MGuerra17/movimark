@@ -1,0 +1,159 @@
+<img src="/divider-pattern.webp" alt="divider" class="divider" />
+<div class="contact-container" id="contacto">
+  <form
+    class="contact-form"
+    action="https://formspree.io/f/xvgogabw"
+    method="POST"
+    >
+    <h5>Contáctanos</h5>
+    <p>Completa el siguiente formulario y nos contactaremos lo mas pronto posible.</p>
+    <input name="_redirect" type="hidden" id="name" value="http://localhost:4321">
+    <input name="_formsubmit_id" type="text" hidden>
+    <div class="input-container">
+      <label for="name">Nombre completo</label>
+      <input type="text" id="name" name="name" placeholder="Ej: Pedro Perez" />
+    </div>
+    <div class="input-container">
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="Ej: correo@ejemplo.com" />
+    </div>
+    <div class="input-container">
+      <label for="phone">Teléfono</label>
+      <input type="tel" id="phone" name="phone" placeholder="Ej: (123)-4567890" />
+    </div>
+    <div class="input-container">
+      <label for="message">Mensaje</label>
+      <textarea id="message" name="message" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
+    </div>
+    <button type="submit">Enviar</button>
+  </form>
+  <div class="contact-image" />
+</div>
+<div class="contact-info-container">
+  <div class="contact-info">
+    <img src="/location.svg" alt="Icono de ubicación" />
+    <p>Calle 43 #30 - 40 Chiquinquira, Barranquilla, Colombia</p> 
+  </div>
+  <div class="contact-info">
+    <img src="/phone.svg" alt="Icono de teléfono" />
+    <p>+57 317 431 8887</p>
+  </div>
+</div>
+
+<style>
+  .divider {
+    width: 100%;
+    margin-top: 3rem;
+  }
+  .contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 6rem 0;
+    column-gap: 8rem;
+  }
+  .contact-form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 8rem;
+  }
+  .contact-form h5 {
+    color: var(--foreground);
+    font-weight: 600;
+    font-size: 4rem;
+    margin: 0;
+  }
+  .contact-form p {
+    color: var(--foreground);
+    font-size: 1.75rem;
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .input-container label {
+    color: var(--foreground);
+    font-size: 1.75rem;
+  }
+  .input-container input, .input-container textarea {
+    padding: 1rem;
+    border: 1px solid #5A5A5A;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    background-color: transparent;
+    font-weight: 400;
+    color: var(--foreground);
+  }
+  .input-container textarea {
+    resize: none;
+  }
+  button {
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: var(--foreground);
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    margin-top: 2rem;
+  }
+  .contact-image {
+    width: 100%;
+    background: url('/contacto.webp') no-repeat center center;
+    background-size: cover;
+  }
+  .contact-info-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    align-items: center;
+    padding-bottom: 2rem;
+    padding: 0 2rem;
+  }
+  .contact-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    color: var(--foreground);
+    font-size: 1.75rem;
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .contact-info p {
+    margin: 0;
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .contact-container {
+      flex-direction: column;
+      padding: 2rem;
+    }
+    .contact-form {
+      max-width: none;
+      padding: 0;
+      padding-bottom: 1.5rem;
+    }
+    .contact-image {
+      height: 300px;
+    }
+    .contact-info-container {
+      gap: 1rem;
+    }
+    .contact-image {
+      display: none;
+    }
+    .contact-info p {
+      width: 100%;
+    }
+  }
+</style>

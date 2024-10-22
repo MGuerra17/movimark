@@ -1,20 +1,22 @@
 ---
+import '@fontsource/pt-sans';
 interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<meta name="description" content={description} />
 	</head>
 	<body>
 		<slot />
@@ -22,29 +24,41 @@ const { title } = Astro.props;
 </html>
 <style is:global>
 	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+		--primary: #E65917;
+		--primary-light: #e65917cf;
+		--secondary: #95959516;
+		--secondary-light: #95959532;
+		--background: #020101;
+		--foreground: #ffffff;
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+		font-family: 'PT sans', system-ui, sans-serif;
+		background: var(--background);
+		scroll-behavior: smooth;
 	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
+	body {
+		margin: 0;
+	}
+
+	@keyframes show {
+		from {
+			opacity: 0;
+			scale: 10%;
+		}
+		to {
+			opacity: 1;
+			scale: 100%;
+		}
+	}
+		
+
+	.animated {
+		view-timeline-name: --reveal;
+
+		animation-name: show;
+		animation-fill-mode: both;
+
+		animation-timeline: --reveal;
+		animation-range: entry 25% cover 50%;
 	}
 </style>

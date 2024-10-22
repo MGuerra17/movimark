@@ -1,0 +1,84 @@
+<div class="activate-container">
+  <div class="activate-text animated">
+    <div>
+      <h5 class="accent">Actívate</h5>
+      <h6 class="title">Exclusivo</>
+    </div>
+    <p>Actívate es una campaña BTL experiencial dirigida a los barrios populares.</p>
+    <p>Es un medio de comunicación a la calle donde promovemos las <span>VENTAS</span> e <span>IMPULSAMOS TU MARCA.</span></p>
+    <p>Actívate es la forma creativa de mercadeo cara a cara dirigido directamente a tu mercado objetivo.</p>
+  </div>
+  <div class="activate-image animated" />
+</div>
+
+<style>
+  .activate-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 6rem 0;
+    column-gap: 4rem;
+  }
+  .activate-text {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-left: 8rem;
+  }
+  .accent {
+    color: var(--primary);
+    font-weight: 400;
+    font-size: 4rem;
+    margin: 0;
+  }
+  .title {
+    color: var(--foreground);
+    font-size: 6rem;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .activate-container p {
+    color: var(--foreground);
+    font-size: 2rem;
+    margin: 0;
+  }
+  .activate-container p span {
+    color: var(--primary);
+    font-weight: 700;
+  }
+  .activate-image {
+    width: 100%;
+    background-color: var(--primary);
+    background: url('/activate.webp') no-repeat center center;
+    background-size: cover;
+  }
+
+  @media (max-width: 1024px) {
+    .activate-container {
+      flex-direction: column;
+      padding: 2rem;
+    }
+    .activate-text {
+      max-width: none;
+      padding: 0;
+      padding-bottom: 1.5rem;
+    }
+    .activate-image {
+      height: 300px;
+    }
+    .accent {
+      text-align: center;
+      font-size: 3rem;
+    }
+    .title {
+      text-align: center;
+      font-size: 4rem;
+    }
+    .activate-container p {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+</style>

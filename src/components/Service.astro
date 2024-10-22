@@ -1,0 +1,52 @@
+---
+interface Props {
+  title: string;
+  src: string;
+  poster?: string;
+}
+
+const { title, src, poster } = Astro.props;
+---
+
+<div class="service">
+  <div class="overlay">
+    <p class="service-title">{title}</p>
+  </div>
+  <video class="service-video" loop muted playsinline poster={poster}>
+    <source src={src} type="video/mp4" />
+  </video>
+</div>
+
+<style>
+  .service {
+    position: relative;
+    width: auto;
+    height: 100%;
+  }
+  .service-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    position: relative;
+    filter: brightness(0.7) grayscale(1);
+  }
+  .service-video:playing {
+    filter: brightness(1) grayscale(0);
+  }
+  .overlay {
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 10%, rgba(255,255,255,0) 80%);
+  }
+  .service-title {
+    font-size: 2rem;
+    color: var(--foreground);
+    margin: 0;
+    padding: 1rem;
+  }
+</style>

@@ -1,0 +1,177 @@
+---
+import Service from "../Service.astro";
+---
+
+<div class="bento" id="servicios">
+  <div class="div1 square animated">
+    <Service title="Carro valla" src="/carrovalla.mp4" poster="carrovalla.webp" />
+  </div>
+  <div class="div2 square text-container animated">
+    <h2 class="bento-title">Nuestro portafolio</h2>
+    <p class="bento-description">Con un enfoque estratégico y creatividad, creamos experiencias de marca que impactan y generan recordación de tu marca</p>
+  </div>
+  <div class="div3 animated">
+    <Service title="Hombre valla" src="/hombrevalla.mp4" poster="hombrevalla.webp" />
+  </div>
+  <div class="div4 square animated">
+    <Service title="Festicanción" src="/festicancion.mp4" poster="festicancion.webp" />
+  </div>
+  <div class="div5 square animated">
+    <Service title="Cine al barrio" src="/cine-al-barrio.mp4" poster="cine-al-barrio.webp" />
+  </div>
+  <div class="div6 animated">
+    <Service title="Movitarima" src="/movitarima.mp4" poster="movitarima.webp" />
+  </div>
+  <div class="div7 square animated">
+    <Service title="Oficina movil" src="/oficina-movil.mp4" poster="oficina-movil.webp" />
+  </div>
+  <div class="div8 animated">
+    <Service title="Moto valla" src="/motovalla.mp4" poster="motovalla.webp" />
+  </div>
+  <div class="div9 text-container animated">
+    <p class="bento-info">Encuentra estrategias unicas para conectar con tu audiencia</p> 
+  </div>
+  <div class="div10 square animated">
+    <Service title="Tv movil" src="/tv-movil.mp4" poster="tv-movil.webp" />
+  </div>
+  <div class="div11 square animated">
+    <Service title="Brigada de salud" src="/brigada-salud.mp4" poster="brigada-salud.webp" />
+  </div>
+</div>
+<style>
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    padding: 6rem 4rem;
+  }
+  .bento div {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .square {
+    aspect-ratio: 1 / 1;
+  }
+  .div1 { grid-area: 1 / 1 / 2 / 2; }
+  .div2 { grid-area: 2 / 1 / 3 / 2; }
+  .div3 { grid-area: 1 / 2 / 3 / 3; }
+  .div4 { grid-area: 1 / 3 / 2 / 4; }
+  .div5 { grid-area: 2 / 3 / 3 / 4; }
+  .div6 { 
+    grid-area: 3 / 1 / 4 / 3;
+    aspect-ratio: 519 / 256;
+  }
+  .div7 { grid-area: 3 / 3 / 4 / 4; }
+  .div8 { grid-area: 4 / 1 / 6 / 2; }
+  .div9 { grid-area: 4 / 2 / 5 / 4; background-color: #ffffff22; padding-right: 2rem;}
+  .div10 { grid-area: 5 / 2 / 6 / 3; }
+  .div11 { grid-area: 5 / 3 / 6 / 4; }
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .bento-title {
+    font-size: 4rem;
+    margin: 0;
+    font-weight: bold;
+    color: var(--primary);
+    max-width: 400px;
+  }
+  .bento-description {
+    font-size: 1.25rem;
+    margin: 1.25rem 0;
+    color: var(--foreground);
+  }
+  .bento-info {
+    font-size: 4rem;
+    margin: 0;
+    color: var(--foreground);
+    text-align: end;
+    max-width: 800px;
+    margin-left: auto;
+  }
+
+  @media (max-width: 1024px) {
+    .bento {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      padding: 4rem 2rem;
+    }
+    .bento-title {
+      font-size: 3rem;
+    }
+    .bento-description {
+      font-size: 1rem;
+    }
+    .bento-info {
+      font-size: 2rem;
+    }
+    .bento div {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .div2 {
+      order: -1;
+    }
+    .div6 {
+      aspect-ratio: auto;
+    }
+    .div9 {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .bento {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      padding: 2rem 1rem;
+    }
+    .bento-title {
+      font-size: 2rem;
+    }
+    .bento-description {
+      font-size: 1rem;
+    }
+    .bento-info {
+      font-size: 1.5rem;
+    }
+    .bento div {
+      grid-column: auto;
+      grid-row: auto;
+    }
+    .div2 {
+      order: -1;
+      aspect-ratio: auto;
+      height: fit-content;
+    }
+    .bento-title {
+      text-align: center;
+      width: 100%;
+      max-width: 100%;
+    }
+    .bento-description {
+      text-align: center;
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  // Get all services divs, add event listener to play video on hover in overlay div
+  const services = document.querySelectorAll('.service');
+  services.forEach(service => {
+    const video = service.querySelector('video') as HTMLVideoElement;
+    const overlay = service.querySelector('.overlay') as HTMLDivElement;
+    overlay.addEventListener('mouseover', () => {
+      video.play();
+    });
+    overlay.addEventListener('mouseout', () => {
+      video.pause();
+    });
+  });
+  
+</script>
